@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  webserver:
+    image: httpd:latest
+    ports:
+      - "80:80"
+  server-check:
+    build: .
+    volumes:
+      - ./server-check.log:/var/log/server-check.log
+    depends_on:
+      - webserver
+    command: >
+      sh -c "while sleep 30; do /usr/local/bin/server-check.sh; done"

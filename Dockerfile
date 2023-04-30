@@ -6,7 +6,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Копіюємо bash скрипт до образу
-COPY server-check.sh /usr/local/bin/server-check.sh
+COPY myscript.sh /usr/local/bin/server-check.sh
 
 # Встановлюємо права на виконання для bash скрипту
 RUN chmod +x /usr/local/bin/server-check.sh
